@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    console.log('ok');
     $('.overlay-newsletter, .newsletter a').click(function(event) {
         event.preventDefault();
         $('.newsletter, .overlay-newsletter').hide();
