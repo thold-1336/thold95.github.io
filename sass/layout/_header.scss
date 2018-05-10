@@ -1,0 +1,381 @@
+header {
+    background-color: #f1f1f1;
+    position: relative;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.header-right {
+    position: relative;
+    z-index: 15;
+    @include media-breakpoint-down(sm) {
+        width: 80%;
+        float: right;
+    }
+    a {
+        color: $black;
+        &:hover {
+            color: $primary;
+        }
+    }
+    >li:first-child {
+        a {
+            margin-right: 40px;
+            display: inline-block;
+        }
+        &:hover .header-cart {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    }
+
+    >li:last-child {
+        &:hover .search-form {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    }
+}
+
+
+.header-cart {
+    position: relative;
+    @include font-size(12px);
+    border: 2px solid $primary;
+    background: $white;
+    position: absolute;
+    top: 54px;
+    left: 25px;
+    min-width: 200px;
+    padding: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px);
+    @include transition(all .5s ease);
+    @include media-breakpoint-down(lg) {
+        left: -30%;
+        right: 0;
+    }
+    @include media-breakpoint-down(xs) {
+        right: 0;
+        left: 0;
+    }
+
+    &::before {
+        position: absolute;
+        content: '';
+        top: -10px;
+        left: 34%;
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 10px solid $primary;
+    }
+
+    li {
+        a {
+            @include font-size(12px);
+            display: inline-block;
+            position: relative;
+            margin-bottom: 20px;
+            margin-right: 0 !important;
+        }
+
+        img {
+            margin-right: 10px;
+        }
+
+        span {
+            @extend %price;
+            position: absolute;
+            left: 87px;
+            top: 30px;
+        }
+    }
+}
+
+.total-cart {
+    border-top: 1px solid $mega-border-heading;
+    a {
+        display: inline-block;
+        background: $cart-link-color;
+        color: $white;
+        width: 70px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    span:nth-child(2) {
+        @extend %price;
+    }
+}
+
+
+
+.search-form {
+    position: absolute;
+    min-width: 260px;
+    background: $white;
+    border: 2px solid $primary;
+    padding: 10px;
+    right: 0;
+    top: 55px;
+    @include transition(all .5s ease);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px);
+    button {
+        background: $primary;
+        boreder: 1px solid $primary;
+        color: $white;
+    }
+    &::before {
+        position: absolute;
+        content: '';
+        top: -12px;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 10px solid #789629;
+    }
+}
+
+.menu {
+    background-color: rgba($navbar-bg-color, 0.2);
+    border-bottom: 1px solid $navbar-border-color;
+    padding: 8px 0;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    @include media-breakpoint-down(md) {
+        background-color: $navbar-bg-color;
+    }
+}
+
+.navbar-nav {
+    padding-left: 75px;
+    @include media-breakpoint-down(md) {
+        padding-left: 0;
+    }
+    >li {
+        >a {
+            color: $navbar-color;
+            font-weight: $font-weight-bold;
+            text-transform: uppercase;
+            @include font-size(12px);
+            margin-left: 25px;
+            @include transition(all .2s ease);
+
+            @include media-breakpoint-down(lg) {
+                margin-left: 10px;
+            }
+
+            &:hover {
+                color: $primary;
+            }
+            &.active-mega:hover .mega-menu {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        &.active a {
+            color: $primary;
+        }
+
+        &.active-mega:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    }
+}
+
+.mega-menu {
+    position: absolute;
+    top: 70px;
+    left: 120px;
+    background: $white;
+    min-width: 670px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 2px solid $primary;
+    opacity: 0;
+    transform: translateY(100px);
+    visibility: hidden;
+    @include transition(all .5s ease);
+    @include media-breakpoint-down(md) {
+        top: 55%;
+        left: 0;
+        min-width: 100%;
+    }
+
+    @include media-breakpoint-down(sm) {
+        flex-direction: column;
+        padding-bottom: 0;
+    }
+
+    &::before {
+        position: absolute;
+        content: '';
+        top: -10px;
+        left: 34%;
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 10px solid $primary;
+    }
+
+    a {
+        color: $mega-menu-color;
+        @include font-size(13px);
+        position: relative;
+        @include transition(all .3s ease);
+        &::before {
+            position: absolute;
+            left: 0px;
+            top: 7px;
+            width: 3px;
+            height: 3px;
+            background: $primary;
+            content: '';
+            border-radius: 50%;
+            opacity: 0;
+            @include transition(all .3s ease);
+        }
+
+
+        &:hover {
+            color: $primary;
+            padding-left: 5px;
+        }
+        &:hover::before {
+            opacity: 1;
+        }
+    }
+}
+
+.mega-menu-item {
+    margin-right: 50px;
+    overflow: hidden;
+    min-width: 140px;
+    &:last-child {
+        margin-right: 0;
+    }
+
+    h4 {
+        @include font-size(14px);
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+        border-bottom: 1px solid $mega-border-heading;
+        padding-bottom: 15px;
+        @include media-breakpoint-down(sm) {
+            @include font-size(12px);
+        }
+    }
+}
+
+.slider-left {
+    padding-top: 100px;
+
+    h1,
+    h2 {
+        color: $primary;
+    }
+
+    h2,
+    a {
+        text-transform: uppercase;
+        font-weight: $font-weight-light;
+    }
+
+    a {
+        text-decoration: underline;
+        color: $link-slider-color;
+        @include font-size(18px);
+        opacity: 0;
+        @include transition(all .3s ease);
+        animation: zoomIn 1s forwards;
+        animation-delay: 1.5s;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+
+    h1 {
+        font-family: "UTMViceroyJF";
+        margin: 0;
+        opacity: 0;
+        @include font-size(141.27px);
+        @include transition(all .1s ease);
+        animation: slideFromLeft 1s forwards;
+        animation-delay: 0.5s;
+
+        @include media-breakpoint-down(lg) {
+            @include font-size(120px);
+        }
+
+        @include media-breakpoint-down(sm) {
+            @include font-size(80px);
+        }
+    }
+
+    h2 {
+        @include font-size(45.24px);
+        opacity: 0;
+        @include transition(all .1s ease);
+        animation: slideFromLeft 1s forwards;
+        animation-delay: 1.5s;
+        @include media-breakpoint-down(lg) {
+            @include font-size(35px);
+        }
+        @include media-breakpoint-down(sm) {
+            @include font-size(24px);
+        }
+    }
+
+    p {
+        @include font-size(19.23px);
+        margin: 0;
+        opacity: 0;
+        font-weight: $font-weight-light;
+        color: $para-slider-color;
+        @include transition(all .1s ease);
+        animation: slideFromLeft 1s forwards;
+        animation-delay: 1s;
+        @include media-breakpoint-down(lg) {
+            @include font-size(16px);
+        }
+        @include media-breakpoint-down(sm) {
+            @include font-size(14px);
+        }
+    }
+
+    img {
+        opacity: 0;
+        @include transition(all .3s ease);
+        animation: zoomIn 1.2s forwards;
+        animation-delay: 0.5s;
+    }
+}
+
+.slider-right {
+    img {
+        position: relative;
+        opacity: 0;
+        @include transition(all .3s ease);
+        animation: slideFromBottom 1.5s forwards;
+        @include media-breakpoint-down(xs) {
+            max-width: 100%;
+        }
+    }
+}

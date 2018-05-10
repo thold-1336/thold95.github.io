@@ -1,0 +1,45 @@
+footer {
+    background: $footer-bg;
+    @include font-size(13px);
+    color: $footer-color;
+    font-family: $stack-opensans;
+    
+    h2 {
+        text-transform: uppercase;
+        font-size: $footer-heading-fontsize;
+        color: $footer-heading-color;
+        font-weight: $font-weight-base;
+    }
+
+    a {
+        color: $footer-color;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+
+    i {
+        color: $primary;
+        margin-right: 5px;
+    }
+}
+
+.site-footer {
+    padding: 50px 40px;
+    @include media-breakpoint-down(sm) {
+        padding: 30px 0 15px;
+    }
+}
+
+.copy-right {
+    border-top: 1px solid;
+    padding: 16px 0;
+}
+
+.contact-us {
+    font-family: $stack-roboto;
+    p>span:nth-child(2) {
+        margin-left: 15px;
+    }
+}

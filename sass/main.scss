@@ -1,0 +1,18 @@
+//====================================
+// Global Imports
+//====================================
+
+// 1- Import bootstrap framework
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+// 2 - Import base style, custom variables and mixins
+@import 'base/index';
+
+// 3 - Import plugins
+@import 'plugins/index';
+
+// 4 - Import modules
+@import 'modules/index';
+
+// 5 - Import layout  styles
+@import 'layout/index';
