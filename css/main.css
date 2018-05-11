@@ -7345,6 +7345,10 @@ button:focus {
   background-color: #789629;
   line-height: 1.4;
   color: #fff; }
+  @media (max-width: 767.98px) {
+    .navbar-toggler {
+      padding: 0 5px;
+      margin-left: 15px; } }
 
 .gutter-10 {
   padding-left: 5px !important;
@@ -7441,9 +7445,7 @@ button:focus {
     top: -30px;
     z-index: 10; }
   .banner-right {
-    margin: 10px 0; }
-  .navbar-collapse {
-    background: #f4f4f4; } }
+    margin: 10px 0; } }
 
 @media (max-width: 767.98px) {
   .nav-tabs .nav-item,
@@ -7452,7 +7454,11 @@ button:focus {
     display: block;
     text-align: center; }
   .navbar {
-    top: 40px; }
+    top: 60px;
+    padding: 0; }
+  .navbar-collapse {
+    background: rgba(203, 211, 223, 0.9);
+    margin-top: 15px; }
   .form-control {
     width: 80%; } }
 
@@ -9787,10 +9793,35 @@ button:focus {
 .owl-carousel {
   display: none;
   width: 100%;
+  margin-top: 50px;
   -webkit-tap-highlight-color: transparent;
   /* position relative and z-index fix webkit rendering fonts issue */
   position: relative;
   z-index: 1; }
+  .owl-carousel::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 285px;
+    height: 400px;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.7); }
+    @media (max-width: 1199.98px) {
+      .owl-carousel::before {
+        display: none; } }
+  .owl-carousel::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: '';
+    width: 285px;
+    height: 400px;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.5); }
+    @media (max-width: 1199.98px) {
+      .owl-carousel::after {
+        display: none; } }
   .owl-carousel .owl-stage {
     position: relative;
     -ms-touch-action: pan-Y;
@@ -9835,13 +9866,14 @@ button:focus {
     .owl-carousel .owl-nav .owl-prev {
       position: absolute;
       left: 15%;
-      background-image: url("images/arrow-right.png"); }
+      z-index: 2; }
       @media (max-width: 1199.98px) {
         .owl-carousel .owl-nav .owl-prev {
           left: 0; } }
     .owl-carousel .owl-nav .owl-next {
       position: absolute;
-      right: 15%; }
+      right: 15%;
+      z-index: 2; }
       @media (max-width: 1199.98px) {
         .owl-carousel .owl-nav .owl-next {
           right: 0; } }
@@ -10087,6 +10119,9 @@ button:focus {
 
 .feature-box {
   margin: 40px 0; }
+  @media (max-width: 767.98px) {
+    .feature-box {
+      margin-bottom: 10px; } }
   .feature-box [class*='col-'] {
     border-right: 1px solid #c2c2c2; }
     .feature-box [class*='col-']:last-child {
@@ -10279,6 +10314,10 @@ button:focus {
 .testimonial .testimonial-content {
   padding: 60px 0;
   background: url("../images/bg-testimonial.jpg") right center no-repeat; }
+  @media (max-width: 767.98px) {
+    .testimonial .testimonial-content {
+      background: none;
+      padding-top: 30px; } }
 
 .testimonial img {
   border-radius: 50%;
@@ -10387,17 +10426,6 @@ button:focus {
   .product-block:hover .product-overlay {
     opacity: 0; }
 
-.product-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(255, 255, 255, 0.7);
-  width: 100%;
-  height: 100%;
-  z-index: 5;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease; }
-
 .product-caption {
   background: #fff;
   border-top: 1px dashed #c2c2c2;
@@ -10468,6 +10496,9 @@ button:focus {
 
 .social {
   padding: 45px 0 70px; }
+  @media (max-width: 767.98px) {
+    .social {
+      padding: 45px 0 30px; } }
   .social a {
     color: #cacaca;
     display: inline-block;
@@ -10541,8 +10572,17 @@ button:focus {
     .above-footer a:hover {
       color: #789629; }
 
-.blog h4 > a {
-  color: #050505; }
+.blog {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+  .blog h4 > a {
+    color: #050505; }
+  .blog img {
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease; }
+  .blog:hover img {
+    -webkit-box-shadow: inset 0 0 5px red;
+            box-shadow: inset 0 0 5px red; }
 
 .blog-content {
   border-top: 1px solid #c2c2c2;
@@ -10599,6 +10639,13 @@ header {
     color: #050505; }
     .header-right a:hover {
       color: #789629; }
+  .header-right .list-inline-item {
+    padding: 15px 0; }
+    @media (max-width: 767.98px) {
+      .header-right .list-inline-item {
+        padding-top: 0;
+        font-size: 18px;
+        font-size: 1.125rem; } }
   .header-right > li:first-child a {
     margin-right: 40px;
     display: inline-block; }
@@ -10620,8 +10667,8 @@ header {
   border: 2px solid #789629;
   background: #fff;
   position: absolute;
-  top: 54px;
-  left: 25px;
+  top: 67px;
+  left: 5px;
   min-width: 200px;
   padding: 10px;
   opacity: 0;
@@ -10674,21 +10721,25 @@ header {
 
 .search-form {
   position: absolute;
-  min-width: 260px;
+  min-width: 300px;
   background: #fff;
   border: 2px solid #789629;
   padding: 10px;
   right: 0;
-  top: 55px;
+  top: 67px;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   opacity: 0;
   visibility: hidden;
   -webkit-transform: translateY(100px);
           transform: translateY(100px); }
+  .search-form form {
+    margin: 0 auto;
+    text-align: center;
+    display: block; }
   .search-form button {
     background: #789629;
-    boreder: 1px solid #789629;
+    border: 1px solid #789629;
     color: #fff; }
   .search-form::before {
     position: absolute;
@@ -10704,7 +10755,6 @@ header {
 .menu {
   background-color: rgba(244, 244, 244, 0.2);
   border-bottom: 1px solid #e7e7e7;
-  padding: 8px 0;
   position: absolute;
   width: 100%;
   top: 0;
@@ -10722,6 +10772,7 @@ header {
   .navbar-nav > li > a {
     color: #1a1a1a;
     font-weight: 700;
+    padding: 15px 0;
     text-transform: uppercase;
     font-size: 12px;
     font-size: 0.75rem;
@@ -10731,6 +10782,9 @@ header {
     @media (max-width: 1199.98px) {
       .navbar-nav > li > a {
         margin-left: 10px; } }
+    @media (max-width: 767.98px) {
+      .navbar-nav > li > a {
+        padding: 0; } }
     .navbar-nav > li > a:hover {
       color: #789629; }
     .navbar-nav > li > a.active-mega:hover .mega-menu {
@@ -10746,7 +10800,7 @@ header {
 
 .mega-menu {
   position: absolute;
-  top: 70px;
+  top: 75px;
   left: 120px;
   background: #fff;
   min-width: 670px;

@@ -18,6 +18,15 @@ header {
             color: $primary;
         }
     }
+
+    .list-inline-item {
+          padding: 15px 0;
+          @include media-breakpoint-down(sm) {
+            padding-top: 0;
+            @include font-size(18px);
+          }
+    }
+
     >li:first-child {
         a {
             margin-right: 40px;
@@ -46,8 +55,8 @@ header {
     border: 2px solid $primary;
     background: $white;
     position: absolute;
-    top: 54px;
-    left: 25px;
+    top: 67px;
+    left: 5px;
     min-width: 200px;
     padding: 10px;
     opacity: 0;
@@ -113,23 +122,28 @@ header {
     }
 }
 
-
-
 .search-form {
     position: absolute;
-    min-width: 260px;
+    min-width: 300px;
     background: $white;
     border: 2px solid $primary;
     padding: 10px;
     right: 0;
-    top: 55px;
+    top: 67px;
     @include transition(all .5s ease);
     opacity: 0;
     visibility: hidden;
     transform: translateY(100px);
+
+    form {
+      margin: 0 auto;
+      text-align: center;
+      display: block;
+    }
+
     button {
         background: $primary;
-        boreder: 1px solid $primary;
+        border: 1px solid $primary;
         color: $white;
     }
     &::before {
@@ -148,7 +162,6 @@ header {
 .menu {
     background-color: rgba($navbar-bg-color, 0.2);
     border-bottom: 1px solid $navbar-border-color;
-    padding: 8px 0;
     position: absolute;
     width: 100%;
     top: 0;
@@ -168,6 +181,7 @@ header {
         >a {
             color: $navbar-color;
             font-weight: $font-weight-bold;
+            padding: 15px 0;
             text-transform: uppercase;
             @include font-size(12px);
             margin-left: 25px;
@@ -175,6 +189,10 @@ header {
 
             @include media-breakpoint-down(lg) {
                 margin-left: 10px;
+            }
+
+            @include media-breakpoint-down(sm) {
+                padding: 0;
             }
 
             &:hover {
@@ -200,7 +218,7 @@ header {
 
 .mega-menu {
     position: absolute;
-    top: 70px;
+    top: 75px;
     left: 120px;
     background: $white;
     min-width: 670px;

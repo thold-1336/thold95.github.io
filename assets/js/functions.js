@@ -18,6 +18,10 @@ $(document).ready(function() {
         event.stopPropagation();
     });
 
+    // $('.product-block').hover(function() {
+    //     $('.owl-carousel').after().css('opacity', '0');
+    // });
+
     // setting owl-carousel library
 
     $('.owl-carousel').owlCarousel({

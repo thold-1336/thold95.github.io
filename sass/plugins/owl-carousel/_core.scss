@@ -5,10 +5,39 @@
 .owl-carousel {
     display: none;
     width: 100%;
+    margin-top: 50px;
     -webkit-tap-highlight-color: transparent;
     /* position relative and z-index fix webkit rendering fonts issue */
     position: relative;
     z-index: 1;
+    &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        width: 285px;
+        height: 400px;
+        z-index: 1;
+        background: rgba($white, .7);
+
+        @include media-breakpoint-down(lg) {
+           display: none;
+        }
+    }
+
+    &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        content: '';
+        width: 285px;
+        height: 400px;
+        z-index: 1;
+        background: rgba($white, .5);
+        @include media-breakpoint-down(lg) {
+           display: none;
+        }
+    }
 
     .owl-stage {
         position: relative;
@@ -65,7 +94,7 @@
         .owl-prev {
             position: absolute;
             left: 15%;
-            background-image: url("images/arrow-right.png");
+            z-index: 2;
             @include media-breakpoint-down (lg) {
                 left: 0;
             }
@@ -73,6 +102,7 @@
         .owl-next {
             position: absolute;
             right: 15%;
+            z-index: 2;
             @include media-breakpoint-down (lg) {
                 right: 0;
             }
@@ -146,8 +176,10 @@
 
 
 
+
 /* No Js */
 
 .no-js .owl-carousel {
+
     display: block;
 }

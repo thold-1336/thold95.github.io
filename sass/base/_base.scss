@@ -93,6 +93,10 @@ button:focus {
     background-color: $primary;
     line-height: 1.4;
     color: $white;
+    @include media-breakpoint-down(sm) {
+        padding: 0 5px;
+        margin-left: 15px;
+    }
 }
 
 .gutter-10 {
@@ -175,10 +179,6 @@ button:focus {
     .banner-right {
         margin: 10px 0;
     }
-
-    .navbar-collapse {
-        background: rgba($navbar-bg-color, 1);
-    }
 }
 
 @include media-breakpoint-down (sm) {
@@ -192,7 +192,13 @@ button:focus {
     }
 
     .navbar {
-        top: 40px;
+        top: 60px;
+        padding: 0;
+    }
+
+    .navbar-collapse {
+        background: rgba($product-bg-2, .9);
+        margin-top: 15px;
     }
 
     .form-control {

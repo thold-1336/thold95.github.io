@@ -84,6 +84,9 @@
 
 .feature-box {
     margin: 40px 0;
+    @include media-breakpoint-down(sm) {
+        margin-bottom: 10px;
+    }
     [class*='col-'] {
         border-right: 1px solid $border-color;
         &:last-child {
@@ -300,7 +303,12 @@
     .testimonial-content {
         padding: 60px 0;
         background: url('#{ $path-image }/bg-testimonial.jpg') right center no-repeat;
+        @include media-breakpoint-down(sm) {
+            background: none;
+            padding-top: 30px;
+        }
     }
+
     img {
         @include border-radius(50%);
         @include border(3px,
@@ -429,17 +437,6 @@
     }
 }
 
-.product-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba($white, 0.7);
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-    @include transition(all .5s ease);
-}
-
 .product-caption {
     background: $white;
     border-top: 1px dashed $border-color;
@@ -513,6 +510,9 @@
 
 .social {
     padding: 45px 0 70px;
+    @include media-breakpoint-down(sm) {
+        padding: 45px 0 30px;
+    }
     a {
         color: $social-color;
         display: inline-block;
@@ -592,8 +592,17 @@
 }
 
 .blog {
+    box-sizing: border-box;
     h4>a {
         color: $heading-color;
+    }
+
+    img {
+        @include transition(all .4s ease);
+    }
+
+    &:hover img {
+        box-shadow: inset 0 0 5px red;
     }
 }
 
