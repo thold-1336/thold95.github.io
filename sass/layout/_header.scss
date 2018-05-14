@@ -5,160 +5,6 @@ header {
     overflow: hidden;
 }
 
-.header-right {
-    position: relative;
-    z-index: 15;
-    @include media-breakpoint-down(sm) {
-        width: 80%;
-        float: right;
-    }
-    a {
-        color: $black;
-        &:hover {
-            color: $primary;
-        }
-    }
-
-    .list-inline-item {
-          padding: 15px 0;
-          @include media-breakpoint-down(sm) {
-            padding-top: 0;
-            @include font-size(18px);
-          }
-    }
-
-    >li:first-child {
-        a {
-            margin-right: 40px;
-            display: inline-block;
-        }
-        &:hover .header-cart {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-    }
-
-    >li:last-child {
-        &:hover .search-form {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-    }
-}
-
-
-.header-cart {
-    position: relative;
-    @include font-size(12px);
-    border: 2px solid $primary;
-    background: $white;
-    position: absolute;
-    top: 67px;
-    left: 5px;
-    min-width: 200px;
-    padding: 10px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(100px);
-    @include transition(all .5s ease);
-    @include media-breakpoint-down(lg) {
-        left: -30%;
-        right: 0;
-    }
-    @include media-breakpoint-down(xs) {
-        right: 0;
-        left: 0;
-    }
-
-    &::before {
-        position: absolute;
-        content: '';
-        top: -10px;
-        left: 34%;
-        width: 0;
-        height: 0;
-        border-left: 20px solid transparent;
-        border-right: 20px solid transparent;
-        border-bottom: 10px solid $primary;
-    }
-
-    li {
-        a {
-            @include font-size(12px);
-            display: inline-block;
-            position: relative;
-            margin-bottom: 20px;
-            margin-right: 0 !important;
-        }
-
-        img {
-            margin-right: 10px;
-        }
-
-        span {
-            @extend %price;
-            position: absolute;
-            left: 87px;
-            top: 30px;
-        }
-    }
-}
-
-.total-cart {
-    border-top: 1px solid $mega-border-heading;
-    a {
-        display: inline-block;
-        background: $cart-link-color;
-        color: $white;
-        width: 70px;
-        text-transform: uppercase;
-        text-align: center;
-    }
-
-    span:nth-child(2) {
-        @extend %price;
-    }
-}
-
-.search-form {
-    position: absolute;
-    min-width: 300px;
-    background: $white;
-    border: 2px solid $primary;
-    padding: 10px;
-    right: 0;
-    top: 67px;
-    @include transition(all .5s ease);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(100px);
-
-    form {
-      margin: 0 auto;
-      text-align: center;
-      display: block;
-    }
-
-    button {
-        background: $primary;
-        border: 1px solid $primary;
-        color: $white;
-    }
-    &::before {
-        position: absolute;
-        content: '';
-        top: -12px;
-        right: 0;
-        width: 0;
-        height: 0;
-        border-left: 20px solid transparent;
-        border-right: 20px solid transparent;
-        border-bottom: 10px solid #789629;
-    }
-}
-
 .menu {
     background-color: rgba($navbar-bg-color, 0.2);
     border-bottom: 1px solid $navbar-border-color;
@@ -169,6 +15,134 @@ header {
     z-index: 20;
     @include media-breakpoint-down(md) {
         background-color: $navbar-bg-color;
+    }
+
+    &__right {
+        position: relative;
+        z-index: 15;
+        @include media-breakpoint-down(md) {
+            width: 80%;
+            float: right;
+        }
+        a {
+            color: $black;
+            &:hover {
+                color: $primary;
+            }
+        }
+
+        .list-inline-item {
+            padding: 15px 0;
+            @include media-breakpoint-down(md) {
+                padding: 20px 0;
+                @include font-size(18px);
+            }
+            @include media-breakpoint-down(sm) {
+                padding-top: 0;
+            }
+        }
+
+        >li:first-child {
+            a {
+                margin-right: 40px;
+                display: inline-block;
+            }
+            &:hover .menu__cart {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+
+        >li:last-child {
+            &:hover .search-form {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+    }
+
+    &__cart {
+        position: relative;
+        @include font-size(12px);
+        border: 2px solid $primary;
+        background: $white;
+        position: absolute;
+        top: 67px;
+        left: 5px;
+        min-width: 200px;
+        padding: 10px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(100px);
+        @include transition(all .5s ease);
+        @include media-breakpoint-down(lg) {
+            left: -30%;
+            right: 0;
+        }
+
+        @include media-breakpoint-down(md) {
+            left: 70%;
+            max-width: 200px;
+        }
+
+        @include media-breakpoint-down(xs) {
+            left: 20%;
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            top: -10px;
+            left: 34%;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 10px solid $primary;
+            @include media-breakpoint-down(sm) {
+                left: initial;
+                right: 0;
+            }
+        }
+
+        li {
+            a {
+                @include font-size(12px);
+                display: inline-block;
+                position: relative;
+                margin-bottom: 20px;
+                margin-right: 0 !important;
+            }
+
+            img {
+                margin-right: 10px;
+            }
+
+            span {
+                @extend %price;
+                position: absolute;
+                left: 87px;
+                top: 30px;
+            }
+        }
+    }
+
+    &__cart--total {
+        border-top: 1px solid $mega-border-heading;
+        a {
+            display: inline-block;
+            background: $cart-link-color;
+            color: $white;
+            width: 70px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        span:nth-child(2) {
+            @extend %price;
+        }
     }
 }
 
@@ -240,6 +214,27 @@ header {
         padding-bottom: 0;
     }
 
+    &__item {
+        margin-right: 50px;
+        overflow: hidden;
+        min-width: 140px;
+        &:last-child {
+            margin-right: 0;
+        }
+
+        h4 {
+            @include font-size(14px);
+            font-weight: $font-weight-bold;
+            text-transform: uppercase;
+            border-bottom: 1px solid $mega-border-heading;
+            padding-bottom: 15px;
+            @include media-breakpoint-down(sm) {
+                @include font-size(12px);
+                cursor: pointer;
+            }
+        }
+    }
+
     &::before {
         position: absolute;
         content: '';
@@ -281,119 +276,141 @@ header {
     }
 }
 
-.mega-menu-item {
-    margin-right: 50px;
-    overflow: hidden;
-    min-width: 140px;
-    &:last-child {
-        margin-right: 0;
+.search-form {
+    position: absolute;
+    min-width: 320px;
+    text-align: center;
+    margin: 0 auto;
+    background: $white;
+    border: 2px solid $primary;
+    padding: 10px;
+    right: 0;
+    top: 67px;
+    @include transition(all .5s ease);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px);
+
+    form {
+        margin: 0 auto;
+        text-align: center;
+        display: inline-block;
     }
 
-    h4 {
-        @include font-size(14px);
-        font-weight: $font-weight-bold;
-        text-transform: uppercase;
-        border-bottom: 1px solid $mega-border-heading;
-        padding-bottom: 15px;
-        @include media-breakpoint-down(sm) {
-            @include font-size(12px);
-        }
+    button {
+        background: $primary;
+        border: 1px solid $primary;
+        color: $white;
+        margin-left: -3px;
+    }
+    &::before {
+        position: absolute;
+        content: '';
+        top: -12px;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 10px solid #789629;
     }
 }
 
-.slider-left {
-    padding-top: 100px;
+.slider {
+    &__left {
+        padding-top: 100px;
 
-    h1,
-    h2 {
-        color: $primary;
-    }
-
-    h2,
-    a {
-        text-transform: uppercase;
-        font-weight: $font-weight-light;
-    }
-
-    a {
-        text-decoration: underline;
-        color: $link-slider-color;
-        @include font-size(18px);
-        opacity: 0;
-        @include transition(all .3s ease);
-        animation: zoomIn 1s forwards;
-        animation-delay: 1.5s;
-
-        &:hover {
+        h1,
+        h2 {
             color: $primary;
         }
+
+        h2,
+        a {
+            text-transform: uppercase;
+            font-weight: $font-weight-light;
+        }
+
+        a {
+            text-decoration: underline;
+            color: $link-slider-color;
+            @include font-size(18px);
+            opacity: 0;
+            @include transition(all .3s ease);
+            animation: zoomIn 1s forwards;
+            animation-delay: 1.5s;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+
+        h1 {
+            font-family: "UTMViceroyJF";
+            margin: 0;
+            opacity: 0;
+            @include font-size(110px);
+            @include transition(all .1s ease);
+            animation: slideFromLeft 1s forwards;
+            animation-delay: 0.5s;
+
+            @include media-breakpoint-down(lg) {
+                @include font-size(90px);
+            }
+
+            @include media-breakpoint-down(sm) {
+                @include font-size(80px);
+            }
+        }
+
+        h2 {
+            @include font-size(45.24px);
+            opacity: 0;
+            @include transition(all .1s ease);
+            animation: slideFromLeft 1s forwards;
+            animation-delay: 1.5s;
+            @include media-breakpoint-down(lg) {
+                @include font-size(35px);
+            }
+            @include media-breakpoint-down(sm) {
+                @include font-size(24px);
+            }
+        }
+
+        p {
+            @include font-size(19.23px);
+            margin: 0;
+            opacity: 0;
+            font-weight: $font-weight-light;
+            color: $para-slider-color;
+            @include transition(all .1s ease);
+            animation: slideFromLeft 1s forwards;
+            animation-delay: 1s;
+            @include media-breakpoint-down(lg) {
+                @include font-size(16px);
+            }
+            @include media-breakpoint-down(sm) {
+                @include font-size(14px);
+            }
+        }
+
+        img {
+            opacity: 0;
+            @include transition(all .3s ease);
+            animation: zoomIn 1.2s forwards;
+            animation-delay: 0.5s;
+        }
     }
 
-    h1 {
-        font-family: "UTMViceroyJF";
-        margin: 0;
-        opacity: 0;
-        @include font-size(141.27px);
-        @include transition(all .1s ease);
-        animation: slideFromLeft 1s forwards;
-        animation-delay: 0.5s;
-
-        @include media-breakpoint-down(lg) {
-            @include font-size(120px);
-        }
-
-        @include media-breakpoint-down(sm) {
-            @include font-size(80px);
-        }
-    }
-
-    h2 {
-        @include font-size(45.24px);
-        opacity: 0;
-        @include transition(all .1s ease);
-        animation: slideFromLeft 1s forwards;
-        animation-delay: 1.5s;
-        @include media-breakpoint-down(lg) {
-            @include font-size(35px);
-        }
-        @include media-breakpoint-down(sm) {
-            @include font-size(24px);
-        }
-    }
-
-    p {
-        @include font-size(19.23px);
-        margin: 0;
-        opacity: 0;
-        font-weight: $font-weight-light;
-        color: $para-slider-color;
-        @include transition(all .1s ease);
-        animation: slideFromLeft 1s forwards;
-        animation-delay: 1s;
-        @include media-breakpoint-down(lg) {
-            @include font-size(16px);
-        }
-        @include media-breakpoint-down(sm) {
-            @include font-size(14px);
-        }
-    }
-
-    img {
-        opacity: 0;
-        @include transition(all .3s ease);
-        animation: zoomIn 1.2s forwards;
-        animation-delay: 0.5s;
-    }
-}
-
-.slider-right {
-    img {
-        position: relative;
-        opacity: 0;
-        @include transition(all .3s ease);
-        animation: slideFromBottom 1.5s forwards;
-        @include media-breakpoint-down(xs) {
-            max-width: 100%;
+    &__right {
+        img {
+            position: relative;
+            opacity: 0;
+            @include transition(all .3s ease);
+            animation: slideFromBottom 1.5s forwards;
+            @include media-breakpoint-down(xs) {
+                max-width: 100%;
+            }
         }
     }
 }

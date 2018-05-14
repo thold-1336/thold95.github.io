@@ -46,7 +46,7 @@ gulp.task("minifyCss", ["compileSass"], function() {
 });
 
 gulp.task('watchFiles', function() {
-    gulp.watch('sass/**/*.scss', ['compileSass']);
+    gulp.watch('sass/*.scss', ['compileSass']);
     gulp.watch('assets/js/*.js', ['concatScripts']);
 })
 

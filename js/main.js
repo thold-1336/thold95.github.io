@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     $('.overlay-newsletter, .newsletter a').click(function(event) {
         event.preventDefault();
         $('.newsletter, .overlay-newsletter').hide();
@@ -8,19 +9,14 @@ $(document).ready(function() {
         clearInterval(popup);
     }, 2500);
 
-    $('.mega-mobile .mega-menu-item > ul').slideUp();
-    $('.mega-mobile .mega-menu-item > h4').click(function() {
-
+    $('.mega-mobile .mega-menu__item > ul').slideUp();
+    $('.mega-mobile .mega-menu__item > h4').click(function() {
         $(this).next().slideToggle();
     });
 
     $(".dropdown-menu").click(function(event) {
         event.stopPropagation();
     });
-
-    // $('.product-block').hover(function() {
-    //     $('.owl-carousel').after().css('opacity', '0');
-    // });
 
     // setting owl-carousel library
 

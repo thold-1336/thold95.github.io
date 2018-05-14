@@ -28,7 +28,7 @@
         margin-bottom: 40px;
         display: inline-block;
     }
-    .pop-up-content {
+    &__content {
         @include border-radius(50%);
         @include font-size(12px);
         color: $newsletter-color;
@@ -66,6 +66,7 @@
         }
         button {
             @include font-size(14px);
+            background-color: transparent;
             color: $newsletter-submit-color;
             text-decoration: underline;
             text-transform: uppercase;
@@ -96,7 +97,7 @@
             border-right: 0;
         }
     }
-    .feature-item {
+    &__item {
         @include media-breakpoint-down(md) {
             margin-bottom: 15px;
         }
@@ -105,33 +106,45 @@
         }
         img {
             margin-bottom: 15px;
+            @include media-breakpoint-down(sm) {
+                height: 25px;
+            }
         }
     }
 }
 
-.banner-product-text {
-    min-height: 100%;
-    @include media-breakpoint-down(xs) {
-        min-height: 295px;
+.banner-product {
+    &__left {
+        margin-bottom: 10px;
+        @include media-breakpoint-down(xs) {
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
     }
-    h3 {
-        position: relative;
-        border-bottom: 1px solid $heading-color;
-        padding-bottom: 10px;
-        text-transform: uppercase;
-        @include font-size(30px);
-        font-family: $stack-roboto-slab;
-        font-weight: $font-weight-light;
-        &::after {
-            position: absolute;
-            content: '';
-            top: 43px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 9px;
-            background-image: url(../images/bg-title-product.jpg);
-            background-position: center;
+    &__left--text {
+        min-height: 100%;
+        @include media-breakpoint-down(xs) {
+            min-height: 295px;
+        }
+        h3 {
+            position: relative;
+            border-bottom: 1px solid $heading-color;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            @include font-size(30px);
+            font-family: $stack-roboto-slab;
+            font-weight: $font-weight-light;
+            &::after {
+                position: absolute;
+                content: '';
+                top: 43px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+                height: 9px;
+                background-image: url(../images/bg-title-product.jpg);
+                background-position: center;
+            }
         }
     }
 }
@@ -188,14 +201,28 @@
     @include media-breakpoint-down(sm) {
         margin-top: 20px;
     }
+
+    h4 {
+        font-family: $stack-playball;
+        @include font-size(35px);
+        font-weight: $font-weight-normal;
+        margin: 10px 0 0;
+    }
+    h5 {
+        @include font-size(14px);
+        span {
+            @include font-size(24px);
+            letter-spacing: 2px;
+        }
+    }
     &::before {
         @extend %product-arrow-left;
         border-right: 20px solid $product-bg-4;
     }
 }
 
-.banner-product-img,
-.banner-right {
+.banner-product__left--img,
+.banner-product__right {
     position: relative;
     overflow: hidden;
     img {
@@ -234,6 +261,14 @@
         ouline: 0;
         i {
             @include font-size(30px);
+        }
+        @include media-breakpoint-down(sm) {
+            width: 50px;
+            height: 50px;
+            i {
+                @include font-size(20px);
+                color: $white;
+            }
         }
     }
 }
@@ -275,32 +310,8 @@
     }
 }
 
-.banner-left {
-    margin-bottom: 10px;
-    @include media-breakpoint-down(xs) {
-        flex-direction: column;
-        margin-bottom: 20px;
-    }
-}
-
-.bg-pink {
-    h4 {
-        font-family: $stack-playball;
-        @include font-size(35px);
-        font-weight: $font-weight-normal;
-        margin: 10px 0 0;
-    }
-    h5 {
-        @include font-size(14px);
-        span {
-            @include font-size(24px);
-            letter-spacing: 2px;
-        }
-    }
-}
-
 .testimonial {
-    .testimonial-content {
+    &__content {
         padding: 60px 0;
         background: url('#{ $path-image }/bg-testimonial.jpg') right center no-repeat;
         @include media-breakpoint-down(sm) {
@@ -327,10 +338,32 @@
 .product-tabs {
     background: url('#{$path-image}/bg-product.jpg') no-repeat;
     background-size: cover;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    padding-top: 55px;
 }
 
 .nav-tabs {
     font-family: $stack-utm;
+    &__separate {
+        position: relative;
+        display: block;
+        background: $border-color;
+        height: 1px;
+        width: 295px;
+        margin: 35px auto 45px;
+        &::after {
+            position: absolute;
+            width: 140px;
+            height: 9px;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            content: '';
+            background: url('#{$path-image}/bg-title.jpg') no-repeat;
+        }
+    }
+
     li {
         &:nth-child(2) {
             .nav-link {
@@ -367,25 +400,6 @@
     }
 }
 
-.separate-tabs {
-    position: relative;
-    display: block;
-    background: $border-color;
-    height: 1px;
-    width: 295px;
-    margin: 35px auto 45px;
-    &::after {
-        position: absolute;
-        width: 140px;
-        height: 9px;
-        top: -4px;
-        left: 50%;
-        transform: translateX(-50%);
-        content: '';
-        background: url('#{$path-image}/bg-title.jpg') no-repeat;
-    }
-}
-
 .tab-pane {
     li {
         .nav-link {
@@ -412,99 +426,94 @@
     }
 }
 
-#product-tabs {
-    margin-top: 40px;
-}
-
 .product-block {
     position: relative;
     overflow: hidden;
     margin-bottom: 30px;
+    &__caption {
+        background: $white;
+        border-top: 1px dashed $border-color;
+        padding: 20px 0 15px;
+        text-align: center;
+        h3 {
+            @include font-size(13px);
+            a {
+                color: $link-color;
+            }
+        }
+        h4 {
+            @include font-size(16px);
+            a {
+                color: $heading-color;
+            }
+        }
+        span {
+            font-family: $stack-lobster;
+            @include font-size(18px);
+        }
+    }
+
+    &__price {
+        color: $primary;
+        &--regular {
+            color: $link-color;
+            @include font-size(14px);
+        }
+        &--sale {
+            color: $sale-price-color;
+        }
+    }
+
+    &__separate {
+        width: 50px;
+        height: 2px;
+        margin: 0 auto;
+        background: $border-color;
+        display: inherit;
+        margin-bottom: 5px;
+    }
+
+    &__action {
+        background: $white;
+        padding: 0 0 30px;
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(50px);
+        @include transition(all .5s ease);
+        @include media-breakpoint-down(md) {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            margin-bottom: 30px;
+        }
+
+        a {
+            border: 2px solid $border-color;
+            @include border-radius(10px);
+            @include transition(all .3s ease);
+            padding: 6px 10px;
+            color: $black;
+            margin-right: 3px;
+            &:hover {
+                background: $primary;
+                border: 2px solid $primary;
+                color: $white;
+            }
+        }
+    }
     img {
         transform: scale(1);
         @include transition(all .3s ease);
     }
-    &:hover .product-action {
+    &:hover &__action {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
     }
     &:hover img {
         transform: scale(1.1);
-    }
-    &:hover .product-overlay {
-        opacity: 0;
-    }
-}
-
-.product-caption {
-    background: $white;
-    border-top: 1px dashed $border-color;
-    padding: 20px 0 15px;
-    text-align: center;
-    h3 {
-        @include font-size(13px);
-        a {
-            color: $link-color;
-        }
-    }
-    h4 {
-        @include font-size(16px);
-        a {
-            color: $heading-color;
-        }
-    }
-    span {
-        font-family: $stack-lobster;
-        @include font-size(18px);
-        &.price {
-            color: $primary;
-        }
-        &.separate-line {
-            width: 50px;
-            height: 2px;
-            margin: 0 auto;
-            background: $border-color;
-            display: inherit;
-            margin-bottom: 5px;
-        }
-        &.regular-price {
-            color: $link-color;
-            @include font-size(14px);
-        }
-        &.sale-price {
-            color: $sale-price-color;
-        }
-    }
-}
-
-.product-action {
-    background: $white;
-    padding: 0 0 30px;
-    width: 100%;
-    text-align: center;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(50px);
-    @include media-breakpoint-down(md) {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        margin-bottom: 30px;
-    }
-    @include transition(all .5s ease);
-    a {
-        border: 2px solid $border-color;
-        @include border-radius(10px);
-        @include transition(all .3s ease);
-        padding: 6px 10px;
-        color: $black;
-        margin-right: 3px;
-        &:hover {
-            background: $primary;
-            border: 2px solid $primary;
-            color: $white;
-        }
     }
 }
 
@@ -592,8 +601,20 @@
 }
 
 .blog {
-    box-sizing: border-box;
-    h4>a {
+    &__content {
+        border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+        padding: 15px 0 5px;
+        p {
+            margin-bottom: 0;
+        }
+        span {
+            color: $link-color;
+            font-style: italic;
+        }
+    }
+
+    h4 a {
         color: $heading-color;
     }
 
@@ -604,25 +625,6 @@
     &:hover img {
         box-shadow: inset 0 0 5px red;
     }
-}
-
-.blog-content {
-    border-top: 1px solid $border-color;
-    border-bottom: 1px solid $border-color;
-    padding: 15px 0 5px;
-    p {
-        margin-bottom: 0;
-    }
-    span {
-        color: $link-color;
-        font-style: italic;
-    }
-}
-
-.product-tabs {
-    border-top: 1px solid $border-color;
-    border-bottom: 1px solid $border-color;
-    padding-top: 55px;
 }
 
 .contact-form {

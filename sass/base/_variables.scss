@@ -1,10 +1,9 @@
 //Custom variables
-$primary:       #789629;
-$black:      #050505;
+$primary: #789629;
+$black: #050505;
 $font-size-base: 0.875rem;
 $carousel-indicator-width: 8px;
 $carousel-indicator-height: 8px;
-
 
 // Descriptive color variables
 $gray-1: #c1c1c1;
@@ -16,8 +15,8 @@ $boulder: #7d7d7d;
 $dove-gray: #656565;
 $mercury: #e7e7e7;
 $madras: #343a01;
-$sunflower: #E3CE33; 
-$greyser: #CBD3DF; 
+$sunflower: #E3CE33;
+$greyser: #CBD3DF;
 $bermuda: #88d8da;
 $equator: #e3a859;
 $pink: #f49ac2;
@@ -34,13 +33,13 @@ $cardinal: #c72527;
 $font-weight-semibold: 600;
 
 // Functional color variables
-$body-color:    $codgray-1;
+$body-color: $codgray-1;
 $link-color: $gray-2;
-$navbar-bg-color:   $wild-sand;
+$navbar-bg-color: $wild-sand;
 $navbar-border-color: $mercury;
 $heading-color: $black;
 $heading-under-line-color: $nobel;
-$navbar-color:  $codgray-1;
+$navbar-color: $codgray-1;
 $link-slider-color: $codgray-1;
 $para-slider-color: $quincy;
 $carousel-indicator-bg: $codgray-3;
@@ -48,12 +47,12 @@ $carousel-indicator-active-bg: $alto;
 $navbar-color-active: $primary;
 $border-color: $silver;
 $video-caption: $equator;
-$product-bg-1: $sunflower; 
-$product-bg-2: $greyser; 
+$product-bg-1: $sunflower;
+$product-bg-2: $greyser;
 $product-bg-3: $bermuda;
 $product-bg-4: $pink;
 $sale-price-color: $cardinal;
-$tab-color:  $gray-2;
+$tab-color: $gray-2;
 $tab-link: $gray-1;
 $bg-button-submit: $gray-5;
 $mega-menu-color: $gray-2;
@@ -74,17 +73,23 @@ $footer-heading-fontsize: 1.125rem;
 
 
 // Font stacks
-$stack-opensans: 'Open Sans', $font-family-base;
-$stack-roboto: 'Roboto', $font-family-base;
-$stack-roboto-slab: 'Roboto Slab', $font-family-base;
-$stack-playball: 'Playball', $font-family-base;
-$stack-lobster: 'Lobster', $font-family-base;
-$stack-utm: 'UTMViceroyJF', $font-family-base;
-$stack-utm2: 'UTM A&S Graceland', $font-family-base;
-$stack-utm-avo: 'UTM AvoBold', $font-family-base;
+$stack-opensans: 'Open Sans',
+$font-family-base;
+$stack-roboto: 'Roboto',
+$font-family-base;
+$stack-roboto-slab: 'Roboto Slab',
+$font-family-base;
+$stack-playball: 'Playball',
+$font-family-base;
+$stack-lobster: 'Lobster',
+$font-family-base;
+$stack-utm: 'UTMViceroyJF',
+$font-family-base;
+$stack-utm2: 'UTM A&S Graceland',
+$font-family-base;
+$stack-utm-avo: 'UTM AvoBold',
+$font-family-base;
 
 // Asset paths
-$path-image   :'../images';
-$path-fonts     :'../fonts';
-
-
+$path-image:'../images';
+$path-fonts:'../fonts';
