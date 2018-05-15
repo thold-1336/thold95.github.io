@@ -150,6 +150,7 @@
 }
 
 .bg-sunflower {
+    position: relative;
     background: $product-bg-1;
     @include media-breakpoint-down(sm) {
         margin-top: 20px;
@@ -169,6 +170,7 @@
 }
 
 .bg-greyser {
+    position: relative;
     background: $product-bg-2;
     @include media-breakpoint-down(sm) {
         margin-bottom: 20px;
@@ -183,6 +185,7 @@
 }
 
 .bg-bermuda {
+    position: relative;
     background: $product-bg-3;
     @include media-breakpoint-down(sm) {
         margin: 10px 0 20px;
@@ -197,6 +200,7 @@
 }
 
 .bg-pink {
+    position: relative;
     background: $product-bg-4;
     @include media-breakpoint-down(sm) {
         margin-top: 20px;

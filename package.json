@@ -1,5 +1,5 @@
 {
-    "name": "bootstrap-4-boiler-plate",
+    "name": "madala",
     "version": "1.0.0",
     "description": "a bootstrap 4 boiler plate with sass, concatenation, minification, autoprefixer, sourcemaps, browser-sync, git and gulp task runner",
     "main": "index.js",

@@ -16,8 +16,8 @@ gulp.task("concatScripts", function() {
     return gulp.src('assets/js/*.js')
         .pipe(maps.init())
         .pipe(concat('main.js'))
-        .pipe(maps.write('./'))
-        .pipe(gulp.dest('js'))
+        .pipe(maps.write('./js'))
+        .pipe(gulp.dest(''))
         .pipe(browserSync.stream());
 });
 
@@ -29,13 +29,13 @@ gulp.task("minifyScripts", ["concatScripts"], function() {
 });
 
 gulp.task('compileSass', function() {
-    return gulp.src("sass/main.scss")
+    return gulp.src("scss/main.scss")
         .pipe(maps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer())
         .pipe(maps.write('./'))
         .pipe(gulp.dest('css'))
-        .pipe(browserSync.stream());
+        .pipe(browserSync.reload);
 });
 
 gulp.task("minifyCss", ["compileSass"], function() {
@@ -46,12 +46,12 @@ gulp.task("minifyCss", ["compileSass"], function() {
 });
 
 gulp.task('watchFiles', function() {
-    gulp.watch('sass/*.scss', ['compileSass']);
+    gulp.watch('scss/**/*.scss', ['compileSass']);
     gulp.watch('assets/js/*.js', ['concatScripts']);
 })
 
 gulp.task('clean', function() {
-    del(['dist', 'assets/css/main.css*', 'assets/js/main*.js*']);
+    del(['dist', 'css/main.css*', 'js/main*.js*']);
 });
 
 gulp.task('renameSources', function() {
@@ -75,12 +75,11 @@ gulp.task("build", ['minifyScripts', 'minifyCss'], function() {
 
 gulp.task('serve', ['watchFiles'], function() {
     browserSync.init({
-        injectChanges: true,
         server: "./"
     });
 
-    gulp.watch("sass/**/*.scss", ['watchFiles']);
-    gulp.watch(['*.html', '*.php']).on('change', browserSync.reload);
+    gulp.watch("scss/**/*.scss", ['watchFiles']);
+    gulp.watch(['*.html', '*.css', '*.scss','*.php']).on('change', browserSync.reload);
 });
 
 gulp.task("default", ["clean", 'build'], function() {

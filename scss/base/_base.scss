@@ -49,14 +49,12 @@ button:focus {
     color: $newsletter-placeholder-color;
 }
 
-
 /* Edge (also supports ::-webkit-input-placeholder) */
 
 ::-ms-input-placeholder {
     @include font-size(12px);
     color: $newsletter-placeholder-color;
 }
-
 
 /* - Internet Explorer 10–11
    - Internet Explorer Mobile 10-11 */
@@ -94,7 +92,6 @@ button:focus {
 
     src: local('O'),
     url("../fonts/UTM AvoBold.ttf") format("truetype");
-    ;
 }
 
 @font-face {
@@ -104,6 +101,10 @@ button:focus {
 
 .modal-backdrop {
     display: none;
+}
+
+.modal-dialog {
+  margin: 10rem auto;  
 }
 
 .nav-tabs,
@@ -156,6 +157,10 @@ button:focus {
     .active {
         background-color: $carousel-indicator-active-bg;
     }
+}
+
+input {
+  min-height: 40px;
 }
 
 @keyframes zoomIn {

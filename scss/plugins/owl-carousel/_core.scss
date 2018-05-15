@@ -16,7 +16,7 @@
         left: 0;
         content: '';
         width: 285px;
-        height: 400px;
+        height: 470px;
         z-index: 1;
         background: rgba($white, .7);
 
@@ -31,7 +31,7 @@
         right: 0;
         content: '';
         width: 285px;
-        height: 400px;
+        height: 470px;
         z-index: 1;
         background: rgba($white, .5);
         @include media-breakpoint-down(lg) {
